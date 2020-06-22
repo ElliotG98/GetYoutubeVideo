@@ -34,8 +34,9 @@ def form_input():
         # FETCHES THE URL
         songs = soup.findAll('div', {'class': 'yt-lockup-video'})
         song = songs[0].contents[0].contents[0].contents[0]
-        link = song['href']
-        return "https://www.youtube.com" + link
+        link = "https://www.youtube.com" + song['href']
+
+        return link
     except Exception as e:
         print("Can't find that, check your network or try a new song", e)
         flash("Can't find that, check your network or try a new song")
