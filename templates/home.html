@@ -4,6 +4,16 @@
 {% block content %}
 <h1>Test</h1>
 
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
 <form action="/post_field" method="POST">
     <input required="required" type="text" name="artist_name" placeholder="Enter The Artist" />
     <input required="required" type="text" name="song_name" placeholder="Enter The Song" />
